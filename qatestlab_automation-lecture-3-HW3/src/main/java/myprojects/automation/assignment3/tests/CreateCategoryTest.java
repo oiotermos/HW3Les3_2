@@ -18,5 +18,6 @@ public class CreateCategoryTest extends BaseScript {
         GeneralActions actions = new GeneralActions(driver);
         actions.login(login,passwd);
         actions.createCategory("Termos");
+        driver.quit();
     }
 }

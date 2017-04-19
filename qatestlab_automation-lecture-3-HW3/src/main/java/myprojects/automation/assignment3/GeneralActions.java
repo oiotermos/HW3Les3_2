@@ -47,15 +47,19 @@ public class GeneralActions {
     public void createCategory(String categoryName) throws InterruptedException {
 
         WebElement catalog = driver.findElement(By.cssSelector("#subtab-AdminCatalog"));
+        WebElement categories = driver.findElement(By.cssSelector("[data-submenu='11']"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(catalogLink));
 
-//        Actions actions = new Actions(driver);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(catalog).perform();
+        actions.moveToElement(categories).perform();
+        categories.click();
 //        actions.moveToElement(catalog).moveToElement(categories).click().build().perform();
 
-        catalog.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(categoriesLink));
-        WebElement categories = driver.findElement(By.cssSelector("[data-submenu='11']"));
-        categories.click();
+//        catalog.click();
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(categoriesLink));
+//
+//        categories.click();
 
         WebElement addCategory = driver.findElement(By.cssSelector("#page-header-desc-category-new_category"));
         addCategory.click();
